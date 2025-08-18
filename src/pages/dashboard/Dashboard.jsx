@@ -6,7 +6,6 @@ const Dashboard = () => {
   const { session, signOut } = UserAuth();
   const navigate = useNavigate();
 
-
   const handleSignOut = async (e) => {
     e.preventDefault();
     try {
@@ -19,7 +18,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h1>Dashboard</h1>
+      <h1>Dashboard blog</h1>
       <h2>Welcome, {session?.user?.email}</h2>
       <div>
         <p
