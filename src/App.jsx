@@ -1,10 +1,10 @@
-import Signup from "./components/Signup"
+import Home from "./pages/home/Home"
 
 function App() {
 
   return (
     <>
-      <Signup />
+    <Home />
     </>
   )
 }

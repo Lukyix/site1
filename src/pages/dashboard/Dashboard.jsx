@@ -1,12 +1,11 @@
 import React from "react";
-import { UserAuth } from "../context/AuthContext";
+import { UserAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const { session, signOut } = UserAuth();
   const navigate = useNavigate();
 
-  console.log("Session:", session);
 
   const handleSignOut = async (e) => {
     e.preventDefault();

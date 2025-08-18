@@ -29,7 +29,6 @@ export const AuthContextProvider = ({ children }) => {
         console.error("Error signing in:", error);
         return { success: false, error };
       }
-      console.log("User signed in:", data);
       return { success: true, data };
     } catch (error) {
       console.error("Error signing in:", error);

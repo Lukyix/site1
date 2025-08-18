@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { UserAuth } from "../context/AuthContext";
+import { UserAuth } from "../../context/AuthContext";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
@@ -29,9 +29,6 @@ const Signin = () => {
   return (
     <form onSubmit={handleSignIn} className="max-w-md m-auto pt-24" action="">
       <h2 className="font-bold pb-2">Sigin</h2>
-      <p>
-        Dont have accoutn <Link to="/Signup">Sign up</Link>
-      </p>
       <div className="flex flex-col py-4">
         <input
           onChange={(e) => setEmail(e.target.value)}
