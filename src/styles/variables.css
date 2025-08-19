@@ -6,10 +6,12 @@
   --color-text: #1a1a1a;
   --color-white: #ffffff;
 
-
-
   /* Veľkosti */
   --container-width: 1200px;
+
   --border-radius: 12px;
+  --border-radius-small: 8px;
+  --border-color: #dcdcdc;
+
   --transition: 0.3s ease-in-out;
 }

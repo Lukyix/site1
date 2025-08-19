@@ -20,6 +20,7 @@ body {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 img,
@@ -36,5 +37,10 @@ button,
 textarea,
 select {
   border: none;
+  background: none;
   font: inherit;
+}
+
+button {
+  cursor: pointer;
 }

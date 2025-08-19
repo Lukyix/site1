@@ -28,8 +28,9 @@ const Signin = () => {
   };
 
   return (
-    <form onSubmit={handleSignIn} className="form_signin" action="">
-      <h2>Sign in</h2>
+    <form onSubmit={handleSignIn} className="signin_card" action="">
+      <h2 className="signin_title">Sign in</h2>
+
       <div className="signin_inputs">
         <input
           onChange={(e) => setEmail(e.target.value)}
@@ -41,10 +42,21 @@ const Signin = () => {
           placeholder="password"
           type="password"
         />
-        <button className="signin_submit_btn" type="submit" disabled={loading}>
+
+        <div className="signin_options">
+          <label className="remember_me">
+            <input type="checkbox" /> Remember me
+          </label>
+          <a href="#" className="forgot_link">
+            Forgot your password?
+          </a>
+        </div>
+
+        <button className="signin_btn" type="submit" disabled={loading}>
           Sign in
         </button>
-        {error && <p className="error">{error}</p>}
+
+        {error && <p className="signin_error">{error}</p>}
       </div>
     </form>
   );
