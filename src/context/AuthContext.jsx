@@ -5,6 +5,7 @@ const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [session, setSession] = useState(undefined);
+  const [profile, setProfile] = useState(null);
 
   const signInUser = async (email, password) => {
     try {
@@ -22,14 +23,34 @@ export const AuthContextProvider = ({ children }) => {
     }
   };
 
+  const fetchProfile = async (userId) => {
+    const { data, error } = await supabase
+      .from("profiles")
+      .select("*")
+      .eq("id", userId)
+      .single();
+    if (error) console.error("Error fetching profile:", error);
+    else setProfile(data);
+  };
+
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
+      if (session?.user) fetchProfile(session.user.id);
     });
-    supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-    });
+
+    const { data: listener } = supabase.auth.onAuthStateChange(
+      (_event, session) => {
+        setSession(session);
+        if (session?.user) fetchProfile(session.user.id);
+        else setProfile(null);
+      }
+    );
+
+    return () => listener.subscription.unsubscribe();
   }, []);
+
+  console.log(profile);
 
   async function signOut() {
     const { error } = supabase.auth.signOut();
@@ -39,7 +60,7 @@ export const AuthContextProvider = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ signInUser, session, signOut }}>
+    <AuthContext.Provider value={{ profile, signInUser, session, signOut }}>
       {children}
     </AuthContext.Provider>
   );
