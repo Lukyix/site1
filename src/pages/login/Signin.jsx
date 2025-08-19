@@ -28,9 +28,9 @@ const Signin = () => {
   };
 
   return (
-    <form onSubmit={handleSignIn} className="" action="">
-      <h2>Sigin</h2>
-      <div>
+    <form onSubmit={handleSignIn} className="form_signin" action="">
+      <h2>Sign in</h2>
+      <div className="signin_inputs">
         <input
           onChange={(e) => setEmail(e.target.value)}
           placeholder="email"
@@ -41,10 +41,10 @@ const Signin = () => {
           placeholder="password"
           type="password"
         />
-        <button type="submit" disabled={loading}>
+        <button className="signin_submit_btn" type="submit" disabled={loading}>
           Sign in
         </button>
-        {error && <p>{error}</p>}
+        {error && <p className="error">{error}</p>}
       </div>
     </form>
   );

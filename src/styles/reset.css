@@ -18,6 +18,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+a {
+  text-decoration: none;
+}
+
 img,
 picture,
 video,
@@ -31,5 +35,6 @@ input,
 button,
 textarea,
 select {
+  border: none;
   font: inherit;
 }
