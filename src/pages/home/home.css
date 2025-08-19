@@ -1,0 +1,5 @@
+@import url("/src/styles.css");
+
+.cigan {
+  background-color: var(--color-primary);
+}

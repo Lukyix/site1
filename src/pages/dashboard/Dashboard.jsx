@@ -21,10 +21,7 @@ const Dashboard = () => {
       <h1>Dashboard blog</h1>
       <h2>Welcome, {session?.user?.email}</h2>
       <div>
-        <p
-          onClick={handleSignOut}
-          className="hover:cursor-pointer border inline-block px-4 py-3 mt-4"
-        >
+        <p onClick={handleSignOut} className="">
           Sign Out
         </p>
       </div>

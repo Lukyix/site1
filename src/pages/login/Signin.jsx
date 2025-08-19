@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../../context/AuthContext";
+import "./signin.css";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
@@ -27,25 +28,23 @@ const Signin = () => {
   };
 
   return (
-    <form onSubmit={handleSignIn} className="max-w-md m-auto pt-24" action="">
-      <h2 className="font-bold pb-2">Sigin</h2>
-      <div className="flex flex-col py-4">
+    <form onSubmit={handleSignIn} className="" action="">
+      <h2>Sigin</h2>
+      <div>
         <input
           onChange={(e) => setEmail(e.target.value)}
           placeholder="email"
-          className="p-3 mt-6"
           type="email"
         />
         <input
           onChange={(e) => setPassword(e.target.value)}
           placeholder="password"
-          className="p-3 mt-6"
           type="password"
         />
-        <button type="submit" disabled={loading} className="mt-6 w-full">
+        <button type="submit" disabled={loading}>
           Sign in
         </button>
-        {error && <p className="text-red-500 text-center pt-4">{error}</p>}
+        {error && <p>{error}</p>}
       </div>
     </form>
   );
