@@ -1,7 +1,7 @@
 import React from "react";
 import { UserAuth } from "../../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-
+import { ROUTES } from "../../routes";
 const Dashboard = () => {
   const { profile, session, signOut } = UserAuth();
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ const Dashboard = () => {
     e.preventDefault();
     try {
       await signOut();
-      navigate("/signin");
+      navigate(ROUTES.LOGIN);
     } catch (error) {
       console.error("Error signing out:", error);
     }
@@ -30,7 +30,7 @@ const Dashboard = () => {
         <p onClick={handleSignOut} className="">
           Sign Out
         </p>
-        <Link to="./blogs/NewBlog">New Blog</Link>
+        <Link to={ROUTES.NEW_BLOG}>New Blog</Link>
       </div>
     </div>
   );
