@@ -6,7 +6,6 @@ import "./signin.css";
 const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false); // 🔹 nový stav
   const [error, setError] = useState("");
   const [loading, setLoading] = useState("");
 
@@ -19,12 +18,6 @@ const Signin = () => {
     try {
       const result = await signInUser(email, password);
       if (result.success) {
-        // 🔹 uloženie podľa toho, či je rememberMe zapnuté
-        if (rememberMe) {
-          localStorage.setItem("user", JSON.stringify(result.user));
-        } else {
-          sessionStorage.setItem("user", JSON.stringify(result.user));
-        }
         navigate("/dashboard");
       }
     } catch (error) {
@@ -36,43 +29,36 @@ const Signin = () => {
 
   return (
     <div className="body">
-      <form onSubmit={handleSignIn} className="signin_card">
-        <h2 className="signin_title">Prihlásiť sa</h2>
+    <form onSubmit={handleSignIn} className="signin_card" action="">
+      <h2 className="signin_title">Prihlásiť sa</h2>
 
-        <div className="signin_inputs">
-          <input
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="email"
-            type="email"
-          />
-          <input
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="password"
-            type="password"
-          />
+      <div className="signin_inputs">
+        <input
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="email"
+          type="email"
+        />
+        <input
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="password"
+          type="password"
+        />
+        <label className="remember_me">
+          <input type="checkbox" /> Remember me
+        </label>
 
-          <label className="remember_me">
-            <input
-              type="checkbox"
-              checked={rememberMe}
-              onChange={(e) => setRememberMe(e.target.checked)} // 🔹 prepínač
-            />
-            Remember me
-          </label>
-
-          <button className="signin_btn" type="submit" disabled={loading}>
-            Prihlásiť sa
-          </button>
-
-          <div className="signin_options">
-            <a href="#" className="forgot_link">
-              Forgot your password?
-            </a>
-          </div>
-
-          {error && <p className="signin_error">{error}</p>}
+        <button className="signin_btn" type="submit" disabled={loading}>
+          Prihlásiť sa
+        </button>
+        <div className="signin_options">
+          <a href="#" className="forgot_link">
+            Forgot your password?
+          </a>
         </div>
-      </form>
+
+        {error && <p className="signin_error">{error}</p>}
+      </div>
+    </form>
     </div>
   );
 };
