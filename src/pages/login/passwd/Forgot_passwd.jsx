@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Error from '../../../components/Error';
 
-const Forgot = () => {
+const Forgot_passwd = () => {
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
@@ -31,4 +31,4 @@ const handleEmailSubmit= ()=>{};
     )
 }
 
-export default Forgot
+export default Forgot_passwd

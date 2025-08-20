@@ -4,7 +4,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Signin from "./pages/login/Signin";
 import PrivateRoute from "./components/PrivateRoute";
 import NewBlog from "./pages/dashboard/blogs/NewBlog";
-import Forgot from "./pages/login/passwd/Forgot";
+import Forgot_passwd from "./pages/login/passwd/Forgot_passwd";
 import NotFound from "./pages/404/NotFound";
 
 
@@ -33,7 +33,7 @@ export const router = createBrowserRouter([
   {
     path: ROUTES.FORGOT_PASSWORD_EMAIL,
     element: (
-      <Forgot />
+      <Forgot_passwd />
     ),
   },
   { path: "*", element: <NotFound /> },
