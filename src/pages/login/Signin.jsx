@@ -51,9 +51,9 @@ const Signin = () => {
           Prihlásiť sa
         </button>
         <div className="signin_options">
-          <a href="#" className="forgot_link">
+          <Link to="/forgot" className="forgot_link">
             Forgot your password?
-          </a>
+          </Link>
         </div>
 
         {error && <p className="signin_error">{error}</p>}

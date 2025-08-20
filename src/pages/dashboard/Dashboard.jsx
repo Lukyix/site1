@@ -10,7 +10,7 @@ const Dashboard = () => {
     e.preventDefault();
     try {
       await signOut();
-      navigate("/");
+      navigate("/signin");
     } catch (error) {
       console.error("Error signing out:", error);
     }
