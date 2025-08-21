@@ -37,12 +37,12 @@ const Signin = () => {
         <div className="signin_inputs">
         <input
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="email"
+          placeholder="Email"
           type="email"
         />
         <input
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="password"
+          placeholder="Password"
           type="password"
         />
         </div>

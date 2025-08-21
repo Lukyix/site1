@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Error from '../../../components/Error';
 
-const Change = () => {
+const Change_passwd = () => {
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
@@ -10,8 +10,8 @@ const handleEmailSubmit= ()=>{};
 
   return (
     <div className="body">
-    <form onSubmit={handleEmailSubmit} className="signin_card" action="">
-      <h2 className="signin_title">Zabudnuté heslo</h2>
+    <form onSubmit={handleEmailSubmit} className="signin_card forgot" action="">
+      <h2 className="signin_title">Zmeniť heslo</h2>
 
       <div className="signin_info">
         <div className="signin_inputs">
@@ -27,7 +27,7 @@ const handleEmailSubmit= ()=>{};
         />
 </div>
         <button className="signin_btn" type="submit" disabled={loading}>
-          Poslať mail
+          Zmeniť heslo
         </button>
 
         {error && <Error error={error} />}
@@ -37,4 +37,4 @@ const handleEmailSubmit= ()=>{};
     )
 }
 
-export default Change
+export default Change_passwd

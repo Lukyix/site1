@@ -10,10 +10,10 @@ const handleEmailSubmit= ()=>{};
 
   return (
     <div className="body">
-    <form onSubmit={handleEmailSubmit} className="signin_card" action="">
+    <form onSubmit={handleEmailSubmit} className="signin_card forgot" action="">
       <h2 className="signin_title">Zabudnuté heslo</h2>
 
-      <div className="signin_info forgot">
+      <div className="signin_info">
         <input
           onChange={(e) => setEmail(e.target.value)}
           placeholder="email"

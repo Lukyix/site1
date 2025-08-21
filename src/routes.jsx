@@ -3,6 +3,7 @@ export const ROUTES = {
   LOGIN: "/login",
   DASHBOARD: "/dashboard",
   FORGOT_PASSWORD_EMAIL: "/login/forgotpassword",
+  FORGOT_PASSWORD: "/login/forgotpassword/:token",
   BLOGS: "/dashboard/blogs",
   NEW_BLOG: "/dashboard/blogs/newblog",
   
